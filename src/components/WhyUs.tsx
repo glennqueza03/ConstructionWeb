@@ -45,6 +45,12 @@ const WhyUs = () => {
             <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-navy mb-4 sm:mb-6">
               Why Us
             </h2>
+            <p className="text-xl sm:text-2xl md:text-3xl font-semibold text-navy mb-4 sm:mb-6 leading-relaxed">
+              Tired of Contractors that disappear or drag projects for months?
+            </p>
+            <p className="text-lg sm:text-xl text-gray-700 mb-6 sm:mb-8 leading-relaxed">
+              We understand the frustration of unreliable contractors and endless project delays. That's why we've built our entire business model around predictability, speed, and accountability. With our specialized focus and proven system, you'll never have to wonder where your contractor went or when your project will finally be done.
+            </p>
             <p className="text-lg sm:text-xl md:text-2xl text-gray-700 mb-6 sm:mb-8 leading-relaxed">
               We specialize in standard bathroom remodels only.<br />
               That focus allows us to deliver faster, cleaner, and more predictable results.
