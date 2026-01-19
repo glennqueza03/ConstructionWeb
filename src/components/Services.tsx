@@ -1,30 +1,35 @@
 import { motion, useScroll, useTransform } from 'framer-motion'
 import { useInView } from 'framer-motion'
 import { useRef } from 'react'
-import { FaBath, FaShower, FaThLarge, FaSink, FaHome } from 'react-icons/fa'
 
 const services = [
   {
-    icon: FaBath,
     title: 'Full Bathroom Remodels',
+    description: 'Complete bathroom transformations with fixed pricing and predictable timelines.',
+    image: '/images/bathroomremodel.jpg',
   },
   {
-    icon: FaShower,
     title: 'Shower Remodels',
+    description: 'Modern shower installations completed in 10-12 days with quality materials.',
+    image: '/images/showerremodel.jpg',
   },
   {
-    icon: FaThLarge,
     title: 'Tile Installation',
+    description: 'Professional tile work for floors, walls, and backsplashes.',
+    image: '/images/bathroomtile.jpg',
   },
   {
-    icon: FaSink,
     title: 'Vanity Replacement',
-  },
-  {
-    icon: FaHome,
-    title: 'Custom Home Builds',
+    description: 'Update your bathroom with new vanities and fixtures.',
+    image: '/images/vanity.jpg',
   },
 ]
+
+const customHomeBuild = {
+  title: 'Custom Home Builds',
+  description: 'Quality construction with attention to detail and predictable timelines.',
+  image: '/images/homeconstruction.jpg',
+}
 
 const Services = () => {
   const ref = useRef(null)
@@ -59,37 +64,92 @@ const Services = () => {
   return (
     <section id="services" ref={ref} className="py-12 sm:py-16 md:py-20 bg-soft-gray relative overflow-hidden">
       <motion.div style={{ y }} className="container mx-auto px-4 sm:px-6 lg:px-8">
-        <motion.h2
+        <motion.div
           initial={{ opacity: 0, y: 30 }}
           animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
           transition={{ duration: 0.6 }}
-          className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-navy text-center mb-8 sm:mb-12 md:mb-16"
+          className="mb-8 sm:mb-12 md:mb-16"
         >
-          Services
-        </motion.h2>
+          <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-navy mb-2 sm:mb-3">
+            Services
+          </h2>
+          <p className="text-lg sm:text-xl text-gray-600">
+            A commitment to excellence in every project.
+          </p>
+        </motion.div>
 
+        {/* 2x2 Grid */}
         <motion.div
           variants={containerVariants}
           initial="hidden"
           animate={isInView ? 'visible' : 'hidden'}
-          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-6 max-w-6xl mx-auto"
+          className="grid grid-cols-1 md:grid-cols-2 gap-1 md:gap-2 max-w-5xl mx-auto mb-4 md:mb-6"
         >
-          {services.map((service, index) => {
-            const Icon = service.icon
-            return (
-              <motion.div
-                key={index}
-                variants={itemVariants}
-                whileHover={{ y: -10, scale: 1.02 }}
-                className="bg-white p-6 sm:p-8 border-2 border-soft-gray hover:border-action-blue transition-all duration-300 shadow-md hover:shadow-xl text-center"
+          {services.map((service, index) => (
+            <motion.div
+              key={index}
+              variants={itemVariants}
+              className="relative aspect-[4/5] md:aspect-[4/5] overflow-hidden group"
+            >
+              {/* Full Background Image */}
+              <div className="absolute inset-0 w-full h-full">
+                <img
+                  src={service.image}
+                  alt={service.title}
+                  className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                  loading="lazy"
+                />
+              </div>
+              
+              {/* Text Block - Top-left, covers 40-50% of card */}
+              <div 
+                className="absolute top-0 left-0 z-10 p-4 sm:p-6 md:p-8 lg:p-10 w-[50%] h-[45%] flex flex-col justify-between"
+                style={{ backgroundColor: '#345DAE' }}
               >
-                <div className="bg-action-blue bg-opacity-10 p-4 mb-4 inline-flex">
-                  <Icon className="text-4xl text-action-blue" />
+                <div>
+                  <h3 className="text-lg sm:text-xl md:text-2xl lg:text-3xl font-bold text-white mb-2 sm:mb-3 leading-tight">
+                    {service.title}
+                  </h3>
+                  <p className="text-xs sm:text-sm md:text-base text-white text-opacity-90 leading-relaxed">
+                    {service.description}
+                  </p>
                 </div>
-                <h3 className="text-xl font-bold text-navy">{service.title}</h3>
-              </motion.div>
-            )
-          })}
+              </div>
+            </motion.div>
+          ))}
+        </motion.div>
+
+        {/* Custom Home Builds - Centered below */}
+        <motion.div
+          variants={itemVariants}
+          initial="hidden"
+          animate={isInView ? 'visible' : 'hidden'}
+          className="relative aspect-[4/5] md:aspect-[3/2] max-w-3xl mx-auto overflow-hidden group"
+        >
+          {/* Full Background Image */}
+          <div className="absolute inset-0 w-full h-full">
+            <img
+              src={customHomeBuild.image}
+              alt={customHomeBuild.title}
+              className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+              loading="lazy"
+            />
+          </div>
+          
+          {/* Text Block - Top-left, covers 40-50% of card */}
+          <div 
+            className="absolute top-0 left-0 z-10 p-4 sm:p-6 md:p-8 lg:p-10 w-[50%] h-[45%] flex flex-col justify-between"
+            style={{ backgroundColor: '#345DAE' }}
+          >
+            <div>
+              <h3 className="text-lg sm:text-xl md:text-2xl lg:text-3xl font-bold text-white mb-2 sm:mb-3 leading-tight">
+                {customHomeBuild.title}
+              </h3>
+              <p className="text-xs sm:text-sm md:text-base text-white text-opacity-90 leading-relaxed">
+                {customHomeBuild.description}
+              </p>
+            </div>
+          </div>
         </motion.div>
       </motion.div>
     </section>

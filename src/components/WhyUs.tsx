@@ -31,7 +31,7 @@ const WhyUs = () => {
   ]
 
   return (
-    <section ref={ref} className="py-12 sm:py-16 md:py-20 pb-8 bg-white relative overflow-hidden">
+    <section ref={ref} className="py-12 sm:py-16 md:py-20 pb-4 bg-white relative overflow-hidden">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-12 items-center">
           {/* Left Side - Content */}

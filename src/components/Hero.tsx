@@ -29,7 +29,9 @@ const Hero = () => {
         alignItems: 'center',
         justifyContent: 'center',
         position: 'relative',
-        overflow: 'hidden'
+        overflow: 'hidden',
+        marginTop: '-116px',
+        paddingTop: '116px'
       }}
     >
       {/* Parallax Background Image */}

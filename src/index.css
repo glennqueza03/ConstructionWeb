@@ -20,7 +20,7 @@
     line-height: 1.5;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
-    padding-top: 0;
+    padding-top: 124px; /* Banner (44px) + Header (80px) */
     overflow-x: hidden;
   }
   

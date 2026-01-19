@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react'
+import TopBanner from './components/TopBanner'
 import Header from './components/Header'
 import Hero from './components/Hero'
 import WhyUs from './components/WhyUs'
@@ -89,6 +90,7 @@ function App() {
   if (currentPage === 'services') {
     return (
       <div className="min-h-screen" style={{ minHeight: '100vh', width: '100%' }}>
+        <TopBanner onNavigateToContact={navigateToContact} />
         <Header 
           onNavigateToServices={navigateToServices} 
           onNavigateToHome={navigateToHome}
@@ -102,6 +104,7 @@ function App() {
 
   return (
     <div className="min-h-screen" style={{ minHeight: '100vh', width: '100%' }}>
+      <TopBanner onNavigateToContact={navigateToContact} />
       <Header 
         onNavigateToServices={navigateToServices} 
         onNavigateToHome={navigateToHome}
